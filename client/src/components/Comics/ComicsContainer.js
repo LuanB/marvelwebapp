@@ -9,7 +9,7 @@ export class ComicsContainer extends Component {
       onClick: (e, row, rowIndex) => {
         console.log(row);
         console.log(row.id);
-        this.props.fetchComicDetail(row.id);
+        //  this.props.fetchComicDetail(row.id);
       }
     };
 
