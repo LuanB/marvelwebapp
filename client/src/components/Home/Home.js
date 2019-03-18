@@ -43,13 +43,15 @@ export class Home extends Component {
     }
 
     return (
-      <>
-        <Button onClick={() => this.handleLoadComics()}>load comics</Button>
+      <div className="home">
+        <Button className="loadBtn" onClick={() => this.handleLoadComics()}>
+          load comics
+        </Button>
 
         <div>{console.log('props is ', this.props)}</div>
 
         <ComicsContainer />
-      </>
+      </div>
     );
   }
 }

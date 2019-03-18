@@ -1,33 +1,45 @@
 import React, { Component } from 'react';
+import Image from 'react-bootstrap/Image';
+import { css } from '@emotion/core';
+import { BarLoader } from 'react-spinners';
 
 export class ComicDetails extends Component {
+  renderComicDetails() {
+    return this.props.comicsDetails.results.map((comicDetail) => {
+      return (
+        <div key={comicDetail.id} className="card darken-1">
+          <div className="card-content ">
+            <span className="card-title">{comicDetail.title}</span>
+            <p>Description: {comicDetail.description}</p>
+            <p>Price ${comicDetail.prices.map((item) => item.price)}</p>
+            <Image
+              src={`${comicDetail.thumbnail.path}.${
+                comicDetail.thumbnail.extension
+              }`}
+              thumbnail
+            />
+          </div>
+        </div>
+      );
+    });
+  }
+
   render() {
     return (
       <div className="col-md-8 col-md-offset-2">
-        <h1>title {this.props.comic.title}</h1>
-        <p>issueNumber: {this.props.comic.issueNumber}</p>
-        <p>url: {this.props.comic.thumbnail}</p>
+        <div>comic details</div>
+        <div className="comicDetailsSpinner">
+          <BarLoader
+            sizeUnit={'px'}
+            size={100}
+            color={'#36D7B7'}
+            loading={this.props.comicDetailsLoading}
+          />
+        </div>
+        {this.renderComicDetails()}
       </div>
     );
   }
-}
-
-function mapStateToProps(state, ownProps) {
-  let comic = {
-    title: '',
-    issueNumber: '',
-    description: '',
-    price: '',
-    thumbnail: ''
-  };
-  const comicId = ownProps.params.id;
-  if (state.comic.length > 0) {
-    comic = Object.assign(
-      {},
-      state.comic.find((comic) => comic.id === comicId)
-    );
-  }
-  return { comic: comic };
 }
 
 export default ComicDetails;

@@ -10,6 +10,8 @@ import ComicsContainer from './components/Comics/ComicsContainer';
 import CharactersContainer from './components/Characters/CharactersContainer';
 import ComicDetails from './components/Comics/ComicDetails';
 
+import './styles/layout.css';
+
 import './App.css';
 
 class App extends Component {
@@ -21,13 +23,7 @@ class App extends Component {
             <div>
               <NavHeader />
               <Route exact path="/" component={Home} />
-              {/* <Route exact path="/searchComics" component={ComicsContainer} /> */}
-              <Route path="/comic/:id" component={ComicDetails} />
-              {/* <Route
-                exact
-                path="/searchHeros"
-              component={CharactersContainer} */}
-              />
+
               <Footer />
             </div>
           </BrowserRouter>

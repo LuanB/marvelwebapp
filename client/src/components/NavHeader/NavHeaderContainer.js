@@ -2,12 +2,16 @@ import React, { Component } from 'react';
 import NavHeader from './NavHeader';
 
 export class NavHeaderContainer extends Component {
-  state = {};
-
   render() {
+    let links = [
+      { label: 'Home', link: '#home' },
+      { label: 'Comics', link: '#Comics' },
+      { label: 'Characters', link: '#Characters' }
+    ];
+
     return (
       <div>
-        <NavHeader />
+        <NavHeader links={links} />
       </div>
     );
   }
