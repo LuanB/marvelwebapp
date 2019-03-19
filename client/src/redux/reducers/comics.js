@@ -19,7 +19,6 @@ const initialState = {
 export default function(state = initialState, action) {
   switch (action.type) {
     case FETCH_COMICS:
-      console.log('fetch comics reducer');
       return { ...state, comics: action.payload, loading: false };
 
     case LOAD_COMICS_LOADING: {
@@ -39,7 +38,6 @@ export default function(state = initialState, action) {
     }
 
     case FETCH_COMIC_DETAIL:
-      console.log('comics detail reducer');
       return {
         ...state,
         comicDetails: action.payload,

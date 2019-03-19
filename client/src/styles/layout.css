@@ -1,11 +1,21 @@
 
 
 .container {
+  height: 100vh;
   display: flex;
   /* min-height: 70vh; */
   flex-direction: column;
   /* min-height: 520px; */
   padding: 1rem;
+  
+}
+
+.main {
+  flex: auto;
+}
+.footer {
+  
+background-color: grey;
 }
 
 .layout {
